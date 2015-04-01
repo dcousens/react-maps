@@ -1,0 +1,19 @@
+{
+  "name": "react-maps",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcousens/react-maps.git"
+  },
+  "author": "Daniel Cousens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcousens/react-maps/issues"
+  },
+  "homepage": "https://github.com/dcousens/react-maps",
+  "devDependencies": {},
+  "dependencies": {}
+}
