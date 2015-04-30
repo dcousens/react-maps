@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "standard": "standard",
-    "test": "npm run-script unit",
-    "unit": "mocha"
+    "build-test": "browserify ./test/index.js > ./test/index.dist.js",
+    "standard": "standard"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
   "author": "Daniel Cousens",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "*",
     "standard": "*"
   },
   "dependencies": {
