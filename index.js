@@ -8,18 +8,26 @@ module.exports = React.createClass({
     return {
       height: '100%',
       width: '100%',
-      disableDoubleClickZoom: false,
 
-      // WARNING: if draggable/panControl is enabled, props.center should only be done once
+      // WARNING: even if draggable/panControl is enable, props.center will still be authoritative
       draggable: false,
       panControl: false,
 
-      noClear: true,
-      keyboardShortcuts: false,
+      // WARNING: even if rotateControl is enabled, props.heading will still be authoritative
       rotateControl: false,
+
+      // WARNING: if scaleControl is enabled, ... something
       scaleControl: false,
+
+      // WARNING: even if these are enabled, props.zoom will still be authoritative
+      disableDoubleClickZoom: false,
+      scrollwheel: false,
       zoomControl: false,
-      scrollwheel: false
+
+      // WARNING: be careful with this
+      keyboardShortcuts: false,
+
+      noClear: true
     }
   },
 
