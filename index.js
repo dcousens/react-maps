@@ -6,9 +6,6 @@ var blacklist = require('blacklist')
 module.exports = React.createClass({
   getDefaultProps: function () {
     return {
-      height: '100%',
-      width: '100%',
-
       // WARNING: even if draggable/panControl is enable, props.center will still be authoritative
       draggable: false,
       panControl: false,
@@ -31,8 +28,26 @@ module.exports = React.createClass({
     }
   },
 
-  componentDidMount: function () { this.updateMap(this.props) },
-  componentWillReceiveProps: function (newProps) { this.update(newProps) },
+  handleWindowResize: function() {
+    this.setState({
+      style: {
+        height: window.innerHeight,
+        width: window.innerWidth
+      }
+    }); 
+  },
+
+  componentDidMount: function () {
+    window.addEventListener('resize', this.handleWindowResize);
+    this.handleWindowResize();
+    this.updateMap(this.props);
+  },
+  componentWillReceiveProps: function (newProps) {
+    this.update(newProps);
+  },
+  componentWillUnmount: function() {
+    window.removeEventListener('resize', this.handleWindowResize);
+  },
 
   updateMap: function (newProps) {
     var domNode = this.getDOMNode()
@@ -87,12 +102,8 @@ module.exports = React.createClass({
   getZoom: function () { return this.state.map.getZoom() },
 
   render: function () {
-    var style = {
-      height: this.props.height,
-      width: this.props.width
-    }
 
-    return <div className={this.props.className} style={style}>
+    return <div className={this.props.className} style={this.state.style}>
       {this.props.children}
     </div>
   }
