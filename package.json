@@ -19,6 +19,7 @@
   "author": "Daniel Cousens",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^9.0.8",
     "standard": "*"
   },
   "dependencies": {
