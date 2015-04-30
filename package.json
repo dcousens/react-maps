@@ -29,6 +29,7 @@
     "standard": "*"
   },
   "dependencies": {
-    "blacklist": "^1.1.2"
+    "blacklist": "^1.1.2",
+    "react": "^0.13.2"
   }
 }
