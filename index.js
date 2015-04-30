@@ -92,10 +92,9 @@ module.exports = React.createClass({
       width: this.props.width
     }
 
-    return React.createElement('div', {
-      className: 'map-canvas',
-      style: style
-    }, this.props.children)
+    return <div className='map-canvas' style={style}>
+      {this.props.children}
+    </div>
   }
 })
 
