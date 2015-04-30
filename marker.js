@@ -32,3 +32,5 @@ module.exports = React.createClass({
     return <div/>
   }
 })
+
+module.exports.Animation = google.maps.Animation
