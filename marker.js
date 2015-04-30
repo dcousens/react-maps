@@ -7,7 +7,7 @@ module.exports = React.createClass({
   componentWillReceiveProps: function (newProps) { this.updateMarker(newProps) },
 
   updateMarker: function (newProps) {
-    var marker = this.state.marker
+    var marker = (this.state && this.state.marker)
 
     // create new marker
     if (!marker) {
