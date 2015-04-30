@@ -92,7 +92,7 @@ module.exports = React.createClass({
       width: this.props.width
     }
 
-    return <div className='map-canvas' style={style}>
+    return <div className={this.props.className} style={style}>
       {this.props.children}
     </div>
   }
