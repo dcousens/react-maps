@@ -1,17 +1,24 @@
 /* global google */
 
 var React = require('react')
+var blacklist = require('blacklist')
 
 module.exports = React.createClass({
+  contextTypes: {
+    map: React.PropTypes.object.isRequired,
+  },
+
   componentDidMount: function () { this.updateMarker(this.props) },
   componentWillReceiveProps: function (newProps) { this.updateMarker(newProps) },
 
-  getInitialState: function() {
+  getInitialState: function () {
     return {}
   },
 
   updateMarker: function (newProps) {
     var marker = this.state.marker
+    var markerOptions = blacklist(newProps, 'map')
+    markerOptions.map = this.context.map
 
     // create new marker
     if (!marker) {
