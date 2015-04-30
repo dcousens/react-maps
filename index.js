@@ -32,13 +32,17 @@ module.exports = React.createClass({
     }
   },
 
+  getInitialState: function() {
+    return {}
+  },
+
   componentDidMount: function () { this.updateMap(this.props) },
   componentWillReceiveProps: function (newProps) { this.updateMap(newProps) },
 
   updateMap: function (newProps) {
     var domNode = this.getDOMNode()
     var mapOptions = blacklist(newProps, 'children', 'className', 'height', 'width', 'pan', 'autofit')
-    var map = (this.state && this.state.map)
+    var map = this.state.map
 
     // create new map
     if (!map) {
