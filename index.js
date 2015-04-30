@@ -20,7 +20,7 @@ module.exports = React.createClass({
       scaleControl: false,
 
       // WARNING: even if these are enabled, props.zoom will still be authoritative
-      disableDoubleClickZoom: false,
+      disableDoubleClickZoom: true,
       scrollwheel: false,
       zoomControl: false,
 
