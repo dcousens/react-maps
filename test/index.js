@@ -11,8 +11,7 @@ var App = React.createClass({
 
     return (<div>
       <h1>react-maps</h1>
-      <ReactMap center={center} zoom={4}>
-        <Marker place="Melbourne" label="A pleasant place to live"/>
+      <ReactMap center={center} zoom={8}>
       </ReactMap>
     </div>)
 	}
