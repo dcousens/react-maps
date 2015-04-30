@@ -24,6 +24,9 @@ module.exports = React.createClass({
       scrollwheel: false,
       zoomControl: false,
 
+      // WARNING: even if enabled, props.mapTypeId will still be authoritative
+      mapTypeControl: false,
+
       // WARNING: be careful with this
       keyboardShortcuts: false,
       streetViewControl: false,
