@@ -26,6 +26,7 @@ module.exports = React.createClass({
 
       // WARNING: be careful with this
       keyboardShortcuts: false,
+      streetViewControl: false,
 
       noClear: true
     }
