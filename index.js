@@ -35,7 +35,7 @@ module.exports = React.createClass({
     }
   },
 
-  getInitialState: function() {
+  getInitialState: function () {
     return {}
   },
 

@@ -7,7 +7,7 @@ var App = React.createClass({
     return {}
   },
 
-  handleWindowResize: function() {
+  handleWindowResize: function () {
     this.setState({
         windowHeight: window.innerHeight,
         windowWidth: window.innerWidth
@@ -18,10 +18,12 @@ var App = React.createClass({
     this.handleWindowResize()
     window.addEventListener('resize', this.handleWindowResize)
   },
-  componentWillUnmount: function() {
+
+  componentWillUnmount: function () {
     window.removeEventListener('resize', this.handleWindowResize)
   },
-	render: function() {
+
+  render: function () {
     var center = {
       lat: -37.8602828,
       lng: 145.079616
@@ -37,7 +39,7 @@ var App = React.createClass({
         <Marker position={center} label="A pleasant place to live"/>
       </ReactMap>
     </div>)
-	}
+  }
 })
 
 React.render(<App/>, document.getElementById('app'))
