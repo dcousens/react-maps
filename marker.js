@@ -4,10 +4,6 @@ var React = require('react')
 var blacklist = require('blacklist')
 
 module.exports = React.createClass({
-  contextTypes: {
-    map: React.PropTypes.object.isRequired,
-  },
-
   componentDidMount: function () { this.updateMarker(this.props) },
   componentWillReceiveProps: function (newProps) { this.updateMarker(newProps) },
 

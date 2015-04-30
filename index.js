@@ -100,8 +100,13 @@ module.exports = React.createClass({
       width: this.props.width
     }
 
+    var self = this
+    var children = React.Children.map(this.props.children, function (child) {
+      return React.cloneElement(child, { map: self.state.map })
+    })
+
     return <div className={this.props.className} style={style}>
-      {this.props.children}
+      {children}
     </div>
   }
 })
