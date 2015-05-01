@@ -6,9 +6,6 @@ var blacklist = require('blacklist')
 module.exports = React.createClass({
   getDefaultProps: function () {
     return {
-      height: '100%',
-      width: '100%',
-
       // WARNING: even if draggable/panControl is enable, props.center will still be authoritative
       draggable: false,
       panControl: false,
@@ -44,7 +41,7 @@ module.exports = React.createClass({
 
   updateMap: function (newProps) {
     var domNode = this.getDOMNode()
-    var mapOptions = blacklist(newProps, 'children', 'className', 'height', 'width', 'pan', 'autofit')
+    var mapOptions = blacklist(newProps, 'children', 'pan', 'autofit')
     var map = this.state.map
 
     // create new map
@@ -95,17 +92,12 @@ module.exports = React.createClass({
   getZoom: function () { return this.state.map.getZoom() },
 
   render: function () {
-    var style = {
-      height: this.props.height,
-      width: this.props.width
-    }
-
-    var self = this
+    var map = this.state.map
     var children = React.Children.map(this.props.children, function (child) {
-      return React.cloneElement(child, { map: self.state.map })
+      return React.cloneElement(child, { map: map })
     })
 
-    return <div className={this.props.className} style={style}>
+    return <div>
       {children}
     </div>
   }
