@@ -1,6 +1,6 @@
 var React = require('react')
-var ReactMap = require('../')
-var Marker = ReactMap.Marker
+var GoogleMap = require('../')
+var Marker = GoogleMap.Marker
 
 var App = React.createClass({
   getInitialState: function () {
@@ -30,14 +30,14 @@ var App = React.createClass({
     }
 
     return (<div>
-      <ReactMap
+      <GoogleMap
         center={center}
         zoom={8}
         height={this.state.windowHeight}
         width={this.state.windowWidth}
       >
         <Marker position={center} label="A pleasant place to live"/>
-      </ReactMap>
+      </GoogleMap>
     </div>)
   }
 })
