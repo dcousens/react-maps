@@ -29,7 +29,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    return <div/>
+    return React.createElement('div')
   }
 })
 

@@ -1,6 +1,5 @@
 var React = require('react')
 var GoogleMap = require('../')
-var Marker = GoogleMap.Marker
 
 var App = React.createClass({
   getInitialState: function () {
@@ -13,13 +12,13 @@ var App = React.createClass({
       lng: 145.079616
     }
 
-    return (<GoogleMap
-      center={center}
-      zoom={8}
-    >
-      <Marker position={center} label="A pleasant place to live"/>
-    </GoogleMap>)
+    return React.createElement(GoogleMap, {
+      center: center,
+      zoom: 8
+    }, [
+      React.createElement(GoogleMap.Marker, { position: center, label: 'A pleasant place to live' })
+    ])
   }
 })
 
-React.render(<App/>, document.getElementById('app'))
+React.render(React.createElement(App), document.getElementById('app'))
