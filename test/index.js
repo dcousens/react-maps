@@ -29,16 +29,14 @@ var App = React.createClass({
       lng: 145.079616
     }
 
-    return (<div>
-      <GoogleMap
-        center={center}
-        zoom={8}
-        height={this.state.windowHeight}
-        width={this.state.windowWidth}
-      >
-        <Marker position={center} label="A pleasant place to live"/>
-      </GoogleMap>
-    </div>)
+    return (<GoogleMap
+      center={center}
+      zoom={8}
+      height={this.state.windowHeight}
+      width={this.state.windowWidth}
+    >
+      <Marker position={center} label="A pleasant place to live"/>
+    </GoogleMap>)
   }
 })
 
