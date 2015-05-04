@@ -71,6 +71,7 @@ module.exports = React.createClass({
   },
 
   getBounds: function () { return this.state.map.getBounds() },
+  getCenter: function () { return this.state.map.getCenter() },
   getHeading: function () { return this.state.map.getHeading() },
   getProjection: function () { return this.state.map.getProjection() },
   getTilt: function () { return this.state.map.getTilt() },
