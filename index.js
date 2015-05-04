@@ -50,21 +50,6 @@ module.exports = React.createClass({
 
     // update existing map
     } else {
-      var oldCenter = map.getCenter()
-      var newCenter = new google.maps.LatLng(mapOptions.center.lat, mapOptions.center.lng)
-
-      if (!oldCenter.equals(newCenter)) {
-        if (newProps.pan) {
-          map.panTo(newCenter)
-
-        } else {
-          map.setCenter(newCenter)
-        }
-
-        delete mapOptions.center
-      }
-
-      // update all other properties
       map.setOptions(mapOptions)
     }
 
