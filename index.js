@@ -57,7 +57,7 @@ module.exports = React.createClass({
     if (newProps.autofit && newProps.children) {
       var bounds = new google.maps.LatLngBounds()
 
-      newProps.children.forEach(function (child) {
+      React.Children.forEach(newProps.children, function (child) {
         var position = child.props.position
         if (!position) return
 
