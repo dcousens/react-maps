@@ -61,7 +61,7 @@ module.exports = React.createClass({
         var position = child.props.position
         if (!position) return
 
-        bounds.extend(position)
+        bounds.extend(new google.maps.LatLng(position.lat, position.lng))
       })
 
       map.fitBounds(bounds)
