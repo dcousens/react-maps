@@ -1,7 +1,6 @@
 /* global google */
 
 var React = require('react')
-var blacklist = require('blacklist')
 
 module.exports = React.createClass({
   componentDidMount: function () { this.updateMarker(this.props) },
@@ -11,10 +10,15 @@ module.exports = React.createClass({
     return {}
   },
 
+  componentWillUnmount: function() {
+    var marker = this.state.marker
+    if (!marker) return
+
+    marker.setMap(null)
+  },
+
   updateMarker: function (newProps) {
     var marker = this.state.marker
-    var markerOptions = blacklist(newProps, 'map')
-    markerOptions.map = this.context.map
 
     // create new marker
     if (!marker) {
