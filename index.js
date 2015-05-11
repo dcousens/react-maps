@@ -70,6 +70,7 @@ module.exports = React.createClass({
     this.setState({ map: map })
   },
 
+  getMap: function () { return this.state.map },
   getBounds: function () { return this.state.map.getBounds() },
   getCenter: function () { return this.state.map.getCenter() },
   getHeading: function () { return this.state.map.getHeading() },
