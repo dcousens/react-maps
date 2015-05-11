@@ -40,6 +40,7 @@ module.exports = React.createClass({
   componentWillReceiveProps: function (newProps) { this.updateMap(newProps) },
 
   updateMap: function (newProps) {
+    var self = this
     var domNode = this.getDOMNode()
     var mapOptions = blacklist(newProps, 'children', 'pan', 'autofit')
     var map = this.state.map
@@ -67,7 +68,9 @@ module.exports = React.createClass({
       map.fitBounds(bounds)
     }
 
-    this.setState({ map: map })
+    this.setState({ map: map }, function() {
+      self.props.onUpdate && self.props.onUpdate(map)
+    })
   },
 
   getMap: function () { return this.state.map },
