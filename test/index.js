@@ -20,8 +20,8 @@ var App = React.createClass({
     var self = this
 
     setInterval(function () {
-      var dx = 0.2 * Math.cos(self.state.t)
-      var dy = 0.2 * Math.sin(self.state.t)
+      var dx = 0.6 * Math.cos(self.state.t)
+      var dy = 0.6 * Math.sin(self.state.t)
 
       self.setState({
         t: self.state.t + 0.01,
@@ -49,12 +49,16 @@ var App = React.createClass({
       React.createElement(GoogleMap.InfoWindow, {
         key: 'infowindow1',
         anchor: markerRef && markerRef.getMarker(),
-        content: '<h1>Woot</h1>',
-        open: window.isOpen
+        open: true
       }, [
-        React.createElement('h1', {
-          key: 'hhh1'
-        }, 'Test')
+        React.createElement('h4', {}, 'Marker')
+      ]),
+      React.createElement(GoogleMap.InfoWindow, {
+        key: 'infowindow2',
+        position: this.state.center,
+        open: true
+      }, [
+        React.createElement('h2', {}, 'Center')
       ])
     ])
   }
