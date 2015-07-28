@@ -14,17 +14,17 @@ module.exports = React.createClass({
     var options = this.props
     if (!options.map) return null
 
-    // avoid adding/removing the marker to the map repeatedly
+    // avoid map reset
     if (options.map === this.map) {
       options = blacklist(options, 'map')
     }
 
-    // create new marker
+    // new
     if (!this.marker) {
       this.marker = new google.maps.Marker(options)
       this.map = options.map
 
-    // update existing marker
+    // existing
     } else {
       this.marker.setOptions(options)
     }
