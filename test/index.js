@@ -48,7 +48,11 @@ var App = React.createClass({
         position: this.state.marker,
         content: '<h1>Woot</h1>',
         open: window.isOpen
-      })
+      }, [
+        React.createElement('h1', {
+          key: 'hhh1'
+        }, 'Test')
+      ])
     ])
   }
 })

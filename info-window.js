@@ -21,10 +21,9 @@ module.exports = React.createClass({
     var props = this.props
     var options = blacklist(this.props, 'anchor', 'children', 'map', 'open')
 
-    // TODO
-//     if (props.children) {
-//       options.content = React.renderToStaticMarkup(props.children)
-//     }
+    if (props.children) {
+      options.content = React.renderToStaticMarkup(React.createElement('span', {}, props.children))
+    }
 
     // new
     if (!this.iw) {
