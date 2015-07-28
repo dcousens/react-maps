@@ -10,6 +10,10 @@ module.exports = React.createClass({
     this.marker.setMap(null)
   },
 
+  getMarker: function () {
+    return this.marker
+  },
+
   render: function () {
     var options = this.props
     if (!options.map) return null
