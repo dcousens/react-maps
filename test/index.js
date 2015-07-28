@@ -34,18 +34,21 @@ var App = React.createClass({
   },
 
   render: function () {
+    var markerRef = this.refs.markerRef
+
     return React.createElement(GoogleMap, {
       center: this.state.center,
       zoom: 8
     }, [
       React.createElement(GoogleMap.Marker, {
         key: 'marker1',
+        ref: 'markerRef',
         position: this.state.marker,
         label: 'A pleasant place to live'
       }),
       React.createElement(GoogleMap.InfoWindow, {
         key: 'infowindow1',
-        position: this.state.marker,
+        anchor: markerRef && markerRef.getMarker(),
         content: '<h1>Woot</h1>',
         open: window.isOpen
       }, [
