@@ -68,7 +68,7 @@ module.exports = React.createClass({
       map.fitBounds(bounds)
     }
 
-    this.setState({ map: map }, function() {
+    this.setState({ map: map }, function () {
       self.props.onUpdate && self.props.onUpdate(map)
     })
   },
@@ -88,7 +88,7 @@ module.exports = React.createClass({
     })
 
     return React.createElement('div', {
-      style: { height: "100%", width: "100%" }
+      style: { height: '100%', width: '100%' }
     }, children)
   }
 })

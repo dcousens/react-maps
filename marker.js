@@ -10,7 +10,7 @@ module.exports = React.createClass({
     return {}
   },
 
-  componentWillUnmount: function() {
+  componentWillUnmount: function () {
     var marker = this.state.marker
     if (!marker) return
 
