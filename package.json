@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-test": "browserify ./test/index.js > ./test/index.dist.js",
+    "test": "browserify ./test/index.js > ./test/index.dist.js",
     "standard": "standard"
   },
   "repository": {
