@@ -42,16 +42,16 @@ module.exports = React.createClass({
   updateMap: function (newProps) {
     var self = this
     var domNode = this.getDOMNode()
-    var mapOptions = blacklist(newProps, 'children', 'pan', 'autofit')
+    var options = blacklist(newProps, 'children', 'pan', 'autofit')
     var map = this.state.map
 
     // create new map
     if (!map) {
-      map = new google.maps.Map(domNode, mapOptions)
+      map = new google.maps.Map(domNode, options)
 
     // update existing map
     } else {
-      map.setOptions(mapOptions)
+      map.setOptions(options)
     }
 
     // autofit the bounds to the children?
