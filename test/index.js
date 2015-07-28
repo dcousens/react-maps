@@ -42,6 +42,12 @@ var App = React.createClass({
         key: 'marker1',
         position: this.state.marker,
         label: 'A pleasant place to live'
+      }),
+      React.createElement(GoogleMap.InfoWindow, {
+        key: 'infowindow1',
+        position: this.state.marker,
+        content: '<h1>Woot</h1>',
+        open: window.isOpen
       })
     ])
   }

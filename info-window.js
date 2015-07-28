@@ -37,10 +37,13 @@ module.exports = React.createClass({
     // avoid superfluous map reset
     if (props.map !== this.map) {
       this.map = props.map
+    }
 
-      if (props.open) {
-        this.iw.open(this.map)
-      }
+    if (props.open) {
+      this.iw.open(this.map)
+
+    } else {
+      this.iw.close()
     }
 
     return null
