@@ -94,4 +94,5 @@ module.exports = React.createClass({
 })
 
 // expose the marker on the top level export
+module.exports.InfoWindow = require('./info-window')
 module.exports.Marker = require('./marker')
