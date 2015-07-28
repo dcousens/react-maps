@@ -2,7 +2,6 @@
 
 var React = require('react')
 var blacklist = require('blacklist')
-var xtend = require('xtend')
 
 module.exports = React.createClass({
   getDefaultProps: function () {
@@ -20,12 +19,15 @@ module.exports = React.createClass({
 
   render: function () {
     var props = this.props
-    var options = blacklist(this.props, 'children', 'content', 'map', 'open')
+    var options = blacklist(this.props, 'children', 'map', 'open')
+
+    if (props.children) {
+      options.content = React.renderToStaticMarkup(props.children)
+    }
 
     // new
     if (!this.iw) {
-      var content = React.renderToString(this.props.children)
-      this.iw = new google.maps.InfoWindow(xtend({ content: content }, options))
+      this.iw = new google.maps.InfoWindow(options)
 
     // existing
     } else {
