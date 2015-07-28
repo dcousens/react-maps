@@ -21,7 +21,7 @@ Read the code for an understanding
 			<InfoWindow position={center} open>
 				<h1>Melbourne</h1>
 			</InfoWindow>
-			<Marker ref="marker1" position={center} label="A pleasant place to live"/>
+			<Marker position={center} label="A pleasant place to live"/>
 		</GoogleMap>)
 	}
 ```
