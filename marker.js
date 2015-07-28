@@ -14,15 +14,17 @@ module.exports = React.createClass({
     var options = this.props
     if (!options.map) return null
 
-    // avoid map reset
+    // stop superfluous map reset
     if (options.map === this.map) {
       options = blacklist(options, 'map')
+
+    } else {
+      this.map = options.map
     }
 
     // new
     if (!this.marker) {
       this.marker = new google.maps.Marker(options)
-      this.map = options.map
 
     // existing
     } else {
