@@ -41,7 +41,7 @@ module.exports = React.createClass({
 
   updateMap: function (newProps) {
     var self = this
-    var domNode = this.getDOMNode()
+    var domNode = React.findDOMNode(this)
     var options = blacklist(newProps, 'children', 'pan', 'autofit')
     var map = this.state.map
 
