@@ -46,5 +46,3 @@ module.exports = React.createClass({
     return null
   }
 })
-
-module.exports.Animation = google.maps.Animation
