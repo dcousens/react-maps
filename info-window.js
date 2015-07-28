@@ -19,11 +19,12 @@ module.exports = React.createClass({
 
   render: function () {
     var props = this.props
-    var options = blacklist(this.props, 'children', 'map', 'open')
+    var options = blacklist(this.props, 'anchor', 'children', 'map', 'open')
 
-    if (props.children) {
-      options.content = React.renderToStaticMarkup(props.children)
-    }
+    // TODO
+//     if (props.children) {
+//       options.content = React.renderToStaticMarkup(props.children)
+//     }
 
     // new
     if (!this.iw) {
@@ -34,13 +35,10 @@ module.exports = React.createClass({
       this.iw.setOptions(options)
     }
 
-    // avoid superfluous map reset
-    if (props.map !== this.map) {
-      this.map = props.map
-    }
-
     if (props.open) {
-      this.iw.open(this.map)
+      if (!props.map) return null
+
+      this.iw.open(props.map, props.anchor)
 
     } else {
       this.iw.close()
