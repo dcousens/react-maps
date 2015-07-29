@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "build": "babel --out-dir lib/ src/",
-    "build-examples": "browserify -t babelify examples/index.unbuilt.js examples/index.js",
+    "build-examples": "browserify -t babelify examples/example1.unbuilt.js examples/example1.js",
     "coverage": "mocha --require blanket -R travis-cov",
     "coverage-local": "mocha --require blanket -R html-cov",
     "prepublish": "npm run build",
@@ -29,7 +29,7 @@
     "test": "npm run standard && npm run unit",
     "unit": "mocha --compilers js:babel/register",
     "watch": "babel --watch --out-dir lib/ src/",
-    "watch-examples": "watchify -t babelify examples/index.unbuilt.js examples/index.js"
+    "watch-examples": "watchify -t babelify examples/example1.unbuilt.js examples/example1.js"
   },
   "config": {
     "blanket": {
