@@ -2,11 +2,8 @@
   "name": "react-maps",
   "version": "0.3.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "browserify ./test/index.js > ./test/index.dist.js",
-    "standard": "standard"
-  },
+  "author": "Daniel Cousens",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/dcousens/react-maps.git"
@@ -15,15 +12,56 @@
     "url": "https://github.com/dcousens/react-maps/issues"
   },
   "homepage": "https://github.com/dcousens/react-maps",
-  "keywords": [],
-  "author": "Daniel Cousens",
-  "license": "MIT",
-  "devDependencies": {
-    "browserify": "^9.0.8",
-    "standard": "*"
+  "keywords": [
+    "react-maps"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "babel --out-dir lib/ src/",
+    "build-examples": "browserify -t babelify examples/index.unbuilt.js examples/index.js",
+    "coverage": "mocha --require blanket -R travis-cov",
+    "coverage-local": "mocha --require blanket -R html-cov",
+    "prepublish": "npm run build",
+    "standard": "standard",
+    "test": "npm run standard && npm run unit",
+    "unit": "mocha --compilers js:babel/register",
+    "watch": "babel --watch --out-dir lib/ src/",
+    "watch-examples": "watchify -t babelify examples/index.unbuilt.js examples/index.js"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        ""
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ]
+    },
+    "travis-cov": {
+      "threshold": 100
+    }
+  },
+  "standard": {
+    "ignore": [
+      "lib/"
+    ]
   },
   "dependencies": {
     "blacklist": "^1.1.2",
-    "react": "^0.13.2"
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "*",
+    "babelify": "*",
+    "blanket": "*",
+    "browserify": "*",
+    "mocha": "*",
+    "standard": "*",
+    "travis-cov": "*",
+    "watchify": "*"
   }
 }
