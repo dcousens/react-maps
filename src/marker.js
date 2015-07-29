@@ -1,21 +1,21 @@
 /* global google */
 
-var React = require('react')
-var blacklist = require('blacklist')
+let React = require('react')
+let blacklist = require('blacklist')
 
 module.exports = React.createClass({
-  componentWillUnmount: function () {
+  componentWillUnmount () {
     if (!this.marker) return
 
     this.marker.setMap(null)
   },
 
-  getMarker: function () {
+  getMarker () {
     return this.marker
   },
 
-  render: function () {
-    var options = this.props
+  render () {
+    let options = this.props
     if (!options.map) return null
 
     // avoid superfluous map reset

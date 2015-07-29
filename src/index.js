@@ -1,10 +1,10 @@
 /* global google */
 
-var React = require('react')
-var blacklist = require('blacklist')
+let React = require('react')
+let blacklist = require('blacklist')
 
 module.exports = React.createClass({
-  getDefaultProps: function () {
+  getDefaultProps () {
     return {
       // WARNING: even if draggable/panControl is enable, props.center will still be authoritative
       draggable: false,
@@ -32,18 +32,17 @@ module.exports = React.createClass({
     }
   },
 
-  getInitialState: function () {
+  getInitialState () {
     return {}
   },
 
-  componentDidMount: function () { this.updateMap(this.props) },
+  componentDidMount () { this.updateMap(this.props) },
   componentWillReceiveProps: function (newProps) { this.updateMap(newProps) },
 
   updateMap: function (newProps) {
-    var self = this
-    var domNode = React.findDOMNode(this)
-    var options = blacklist(newProps, 'children', 'pan', 'autofit')
-    var map = this.state.map
+    let domNode = React.findDOMNode(this)
+    let options = blacklist(newProps, 'children', 'pan', 'autofit')
+    let map = this.state.map
 
     // create new map
     if (!map) {
@@ -56,10 +55,10 @@ module.exports = React.createClass({
 
     // autofit the bounds to the children?
     if (newProps.autofit && newProps.children.length) {
-      var bounds = new google.maps.LatLngBounds()
+      let bounds = new google.maps.LatLngBounds()
 
       React.Children.forEach(newProps.children, function (child) {
-        var position = child.props.position
+        let position = child.props.position
         if (!position) return
 
         bounds.extend(new google.maps.LatLng(position.lat, position.lng))
@@ -68,28 +67,32 @@ module.exports = React.createClass({
       map.fitBounds(bounds)
     }
 
-    this.setState({ map: map }, function () {
-      self.props.onUpdate && self.props.onUpdate(map)
+    this.setState({ map: map }, () => {
+      if (!this.props.onUpdate) return
+
+      this.props.onUpdate(map)
     })
   },
 
-  getMap: function () { return this.state.map },
-  getBounds: function () { return this.state.map.getBounds() },
-  getCenter: function () { return this.state.map.getCenter() },
-  getHeading: function () { return this.state.map.getHeading() },
-  getProjection: function () { return this.state.map.getProjection() },
-  getTilt: function () { return this.state.map.getTilt() },
-  getZoom: function () { return this.state.map.getZoom() },
+  getMap () { return this.state.map },
+  getBounds () { return this.state.map.getBounds() },
+  getCenter () { return this.state.map.getCenter() },
+  getHeading () { return this.state.map.getHeading() },
+  getProjection () { return this.state.map.getProjection() },
+  getTilt () { return this.state.map.getTilt() },
+  getZoom () { return this.state.map.getZoom() },
 
-  render: function () {
-    var map = this.state.map
-    var children = React.Children.map(this.props.children, function (child) {
+  render () {
+    let map = this.state.map
+    let children = React.Children.map(this.props.children, function (child) {
       return React.cloneElement(child, { map: map })
     })
 
-    return React.createElement('div', {
-      style: { height: '100%', width: '100%' }
-    }, children)
+    return (
+      <div style={{ height: '100%', width: '100%' }}>
+        {children}
+      </div>
+    )
   }
 })
 

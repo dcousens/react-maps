@@ -1,25 +1,25 @@
 /* global google */
 
-var React = require('react')
-var blacklist = require('blacklist')
+let React = require('react')
+let blacklist = require('blacklist')
 
 module.exports = React.createClass({
-  getDefaultProps: function () {
+  getDefaultProps () {
     return {
       // WARNING: if autoPan is enabled, the parent maps props will be overridden
       disableAutoPan: true
     }
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount () {
     if (!this.iw) return
 
     this.iw.close()
   },
 
-  render: function () {
-    var props = this.props
-    var options = blacklist(this.props, 'anchor', 'children', 'map', 'open')
+  render () {
+    let props = this.props
+    let options = blacklist(this.props, 'anchor', 'children', 'map', 'open')
 
     if (props.children) {
       options.content = React.renderToStaticMarkup(React.createElement('span', {}, props.children))
