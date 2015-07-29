@@ -29,7 +29,7 @@
     "test": "npm run standard && npm run unit",
     "unit": "mocha --compilers js:babel/register",
     "watch": "babel --watch --out-dir lib/ src/",
-    "watch-examples": "mkdir -p examples/build && watchify -t babelify examples/src/example1.js --outfile examples/build/example1.js"
+    "watch-examples": "mkdir -p examples/build && watchify -v -t babelify examples/src/example1.js --outfile examples/build/example1.js"
   },
   "config": {
     "blanket": {
