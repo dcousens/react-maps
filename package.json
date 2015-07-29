@@ -22,28 +22,11 @@
   "scripts": {
     "build": "babel --out-dir lib/ src/",
     "build-examples": "mkdir -p examples/build && browserify -t babelify examples/src/example1.js --outfile examples/build/example1.js",
-    "coverage": "mocha --require blanket -R travis-cov",
-    "coverage-local": "mocha --require blanket -R html-cov",
     "prepublish": "npm run build",
     "standard": "standard",
-    "test": "npm run standard && npm run unit",
-    "unit": "mocha --compilers js:babel/register",
+    "test": "npm run standard",
     "watch": "babel --watch --out-dir lib/ src/",
     "watch-examples": "mkdir -p examples/build && watchify -v -t babelify examples/src/example1.js --outfile examples/build/example1.js"
-  },
-  "config": {
-    "blanket": {
-      "pattern": [
-        ""
-      ],
-      "data-cover-never": [
-        "node_modules",
-        "test"
-      ]
-    },
-    "travis-cov": {
-      "threshold": 100
-    }
   },
   "standard": {
     "ignore": [
@@ -57,11 +40,8 @@
   "devDependencies": {
     "babel": "*",
     "babelify": "*",
-    "blanket": "*",
     "browserify": "*",
-    "mocha": "*",
     "standard": "*",
-    "travis-cov": "*",
     "watchify": "*"
   }
 }
