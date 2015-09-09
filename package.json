@@ -1,7 +1,7 @@
 {
   "name": "react-maps",
   "version": "0.3.3",
-  "description": "",
+  "description": "A Google map API wrapper for React",
   "author": "Daniel Cousens",
   "license": "MIT",
   "repository": {
