@@ -35,14 +35,19 @@
     ]
   },
   "dependencies": {
-    "blacklist": "^1.1.2",
-    "react": "^0.13.3"
+    "blacklist": "^1.1.2"
   },
   "devDependencies": {
     "babel": "*",
     "babelify": "*",
     "browserify": "*",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
     "standard": "*",
     "watchify": "*"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   }
 }
