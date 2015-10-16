@@ -26,7 +26,7 @@ module.exports = React.createClass({
   },
 
   render () {
-    let options = this.props
+    let options = blacklist(this.props, {})
     if (!options.map) return null
 
     // avoid superfluous map reset
