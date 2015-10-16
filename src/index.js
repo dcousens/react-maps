@@ -1,6 +1,7 @@
 /* global google */
 
 let React = require('react')
+let ReactDOM = require('react-dom')
 let blacklist = require('blacklist')
 
 module.exports = React.createClass({
@@ -40,7 +41,7 @@ module.exports = React.createClass({
   componentWillReceiveProps: function (newProps) { this.updateMap(newProps) },
 
   updateMap: function (newProps) {
-    let domNode = React.findDOMNode(this)
+    let domNode = ReactDOM.findDOMNode(this)
     let options = blacklist(newProps, 'children', 'pan', 'autofit')
     let map = this.state.map
 

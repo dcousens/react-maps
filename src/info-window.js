@@ -1,6 +1,7 @@
 /* global google */
 
 let React = require('react')
+let ReactDOMServer = require('react-dom/server')
 let blacklist = require('blacklist')
 
 module.exports = React.createClass({
@@ -22,7 +23,7 @@ module.exports = React.createClass({
     let options = blacklist(this.props, 'anchor', 'children', 'map', 'open')
 
     if (props.children) {
-      options.content = React.renderToStaticMarkup(React.createElement('span', {}, props.children))
+      options.content = ReactDOMServer.renderToStaticMarkup(React.createElement('span', {}, props.children))
     }
 
     // new

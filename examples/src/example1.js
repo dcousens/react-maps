@@ -1,4 +1,5 @@
 let React = require('react')
+let ReactDOM = require('react-dom')
 let GoogleMap = require('../../src/index')
 
 let App = React.createClass({
@@ -54,4 +55,4 @@ let App = React.createClass({
   }
 })
 
-React.render(React.createElement(App), document.getElementById('app'))
+ReactDOM.render(React.createElement(App), document.getElementById('app'))
